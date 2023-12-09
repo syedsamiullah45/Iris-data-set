@@ -1,0 +1,38 @@
+# IMPORTING LIBRARIES
+import numpy as np
+import pandas as pd
+import seaborn as sns
+sns.set_palette('husl')
+import matplotlib.pyplot as plt
+%matplotlib inline
+from sklearn.model_selection import train_test_split
+from sklearn.model_selection import cross_val_score
+from sklearn.model_selection import StratifiedKFold
+from sklearn.metrics import classification_report
+from sklearn.metrics import accuracy_score
+from sklearn.linear_model import LogisticRegression
+from sklearn.tree import DecisionTreeClassifier
+from sklearn.neighbors import KNeighborsClassifier
+from sklearn.discriminant_analysis import LinearDiscriminantAnalysis
+from sklearn.naive_bayes import GaussianNB
+from sklearn.svm import SVC
+Loading Iris data
+
+col_name = ['sepal-lenght','sepal-width','petal-lenght','petal-width','class']
+Pandas read_csv() is used for reading the csv file:
+
+dataset = pd.read_csv(url, names = col_name)
+sns.violinplot(y='class', x='sepal-lenght', data=dataset, inner='quartile')
+plt.show()
+sns.violinplot(y='class', x='sepal-width', data=dataset, inner='quartile')
+plt.show()
+sns.violinplot(y='class', x='petal-lenght', data=dataset, inner='quartile')
+plt.show()
+sns.violinplot(y='class', x='petal-width', data=dataset, inner='quartile')
+plt.show()
+
+sns.pairplot(dataset, hue='class', markers='+')
+plt.show()
+plt.figure(figsize=(7,5))
+sns.heatmap(dataset.corr(), annot=True, cmap='cubehelix_r')
+plt.show()
